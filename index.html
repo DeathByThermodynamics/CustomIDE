@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content = "IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self' 'unsafe-inline'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="script-src 'self'"
+    />
+    <link rel="stylesheet" href="./styles.css"/>
+    <link rel="stylesheet" href="./leftbar.css"/>
+    <link rel="stylesheet" href="./listing.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet"/>
+    <title>Document</title>
+  </head>
+  <body>
+    
+    <div class = "title-bar">
+      
+      <span class="document-name" id="document-title">hoi4example</span>
+
+      <div  class="top_bar_buttons">
+        <button class="open" onclick="window.api.send('openFolder')"> Open lmao </button>
+        <button id ="minimize" class="shadow_button" onclick="window.api.send('minimize')"> <span class="material-icons">minimize</span></button>
+        <button id ="resize" class="shadow_button" onclick="{window.moveTo(0, 0);
+          window.resizeTo(screen.width, screen.height);}"> <span class="material-icons">check_box_outline_blank</span></button>
+        <button id ="close" class="shadow_button" onclick="window.close()"> <span class="material-icons">close</span></button>
+      </div> 
+      
+    </div> 
+    
+    <main>
+      <div class="main_partition">
+        
+        <div  class="main_toolbar"> 
+          <div class="fixed_toolbar">   </div> 
+          <div class="toolbar1" id="toolbar"></div>
+        </div>
+
+        <div class="text_partition">
+          <div class="listing"> 
+            <div class="fixed_listing">
+              <div class="listing1" id="filelist">
+
+              </div>
+            </div>
+            
+          </div>
+          <div id="text_container" class="main_area"></div>
+        </div>
+        
+      </div>
+      
+    </main>
+
+   
+    <script src="react.development.js" crossorigin></script>  
+    <script src="react-dom.development.js" crossorigin></script>
+    <script src="babel.min.js" crossorigin></script>
+    
+    <!-- <script src="textline.js" type="text/babel"></script> --> 
+    <script src="textarea.js" type="text/babel"></script>
+    <script src="listings.js" type="text/babel"></script>
+    <script src="toolbar.js" type="text/babel"></script>
+    <script src="index.js" ></script>
+  </body>
+</html>

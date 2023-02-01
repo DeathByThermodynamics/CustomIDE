@@ -1,0 +1,63 @@
+.listing {
+
+    color: white;
+    background-color: rgb(40, 40, 40);
+    height: 100vh;  
+    width: 10vw;
+    
+    font-family: Arial;
+    font-size: 15px;
+
+}
+
+.fixed_listing {
+    
+    height: 100vh;  
+    width: 10vw;
+    overflow-x: hidden;
+    color: white;
+    background-color: rgb(40, 40, 40);
+}
+.listing1 {
+    margin-left: 0px;
+    margin-top: 10px;
+   width: 100%;
+   
+   height: 100vh;
+   
+}
+
+.FileButton {
+    width: 100%;
+    height: 20px;
+    background: none;
+    text-align: left;
+    border: none;
+    color: rgb(161, 161, 161);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.FileButton:hover {
+    cursor: pointer;
+    background: rgb(59, 59, 59);
+}
+
+.column_indent {
+    column-count: 2;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.column_indent_helper {
+    width: 10px;
+    min-width: 8px;
+}
+
+.column_indent_2 {
+    width: 200px;
+    min-width: 150px;
+    
+}

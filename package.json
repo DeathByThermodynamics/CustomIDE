@@ -1,0 +1,14 @@
+{
+  "name": "electron-2",
+  "version": "1.0.0",
+  "main": "main.js",
+  "author": "Alex He-Mo",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^22.0.3",
+    "electron-reloader": "^1.2.3"
+  }
+}
