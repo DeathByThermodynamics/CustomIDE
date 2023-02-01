@@ -44,7 +44,21 @@ ipcMain.on("openFolder", (event, args) => {
     properties: ['openDirectory']
   })
   console.log(directory)
-  tryReadDir(directory[0], 0)
+  if (directory != null) { 
+    tryReadDir(directory[0], 0)
+  }
+  
+}) 
+
+ipcMain.on("saveFile", (event, args) => {
+  console.log("bruh")
+  console.log(args)
+  fs.writeFile(args.sentDirectory, args.sentData, function (err) {
+    if (err) {
+      console.log("unlucky")
+    }
+    console.log('Saved!');
+  })
 })
 
 ipcMain.on("sendDirectory", (event, args) => {

@@ -23,11 +23,14 @@
   <body>
     
     <div class = "title-bar">
-      
+      <div class ="top_bar_left">
+        <button class="shadow_button" onclick="window.api.send('openFolder')"> Open </button>
+        <button class="shadow_button" onclick="sendData()"> Save </button>
+      </div>
       <span class="document-name" id="document-title">hoi4example</span>
 
       <div  class="top_bar_buttons">
-        <button class="open" onclick="window.api.send('openFolder')"> Open lmao </button>
+        
         <button id ="minimize" class="shadow_button" onclick="window.api.send('minimize')"> <span class="material-icons">minimize</span></button>
         <button id ="resize" class="shadow_button" onclick="{window.moveTo(0, 0);
           window.resizeTo(screen.width, screen.height);}"> <span class="material-icons">check_box_outline_blank</span></button>

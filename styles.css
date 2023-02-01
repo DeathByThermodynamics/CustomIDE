@@ -34,6 +34,17 @@
     column-count: 3;
     display: flex;
     flex-direction: row;
+    height: 90%;
+}
+
+.top_bar_left {
+    height: 90%;  
+    pointer-events:all;
+    z-index: 10;
+    align-items: flex-start;
+    column-count: 2;
+    display: flex;
+    flex-direction: row;
 }
 
 

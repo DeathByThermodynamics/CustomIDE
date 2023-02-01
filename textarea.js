@@ -37,12 +37,31 @@ class Lines extends React.Component {
         this.state = {
             numLines: 2,
             selectedLine: 0,
-            docName: props.textName
+            docName: props.textName,
+            directory: "",
         }
         this.manageLines = this.manageLines.bind(this);
         this.updateClick = this.updateClick.bind(this);
+        this.setAddr = this.setAddr.bind(this);
+        this.getAddr = this.getAddr.bind(this);
         docNameMaster = props.textName
         reference = this;
+    }
+
+    setAddr(data) {
+        //console.log(data)
+        this.setState(()=>({directory: data.toString()}))
+        this.state.directory = data.toString();
+        document.getElementById("document-title").textContent = data.toString();
+        //console.log(this.state.directory)
+    }
+
+    getDoc() {
+        return document.getElementById(this.state.docName).value;
+    }
+
+    getAddr() {
+        return this.state.directory;
     }
 
     setDoc(data) {
@@ -224,6 +243,8 @@ function CodeLineHelper(event) {
     }
 }
 
+
+
 function ReRender() {
     root.render(<Lines textName="textLine"></Lines>);
 }
@@ -235,7 +256,9 @@ function loadIntoFile(readfile) {
     //console.log(reference)
     console.log(readfile.directory);
     reference.setDoc(readfile.data);
-    
+
+    reference.setAddr(readfile.directory);
+    console.log(reference.getAddr())
     // BLESS EVERYTHING
     //console.log(event)
     //console.log(data)
@@ -244,5 +267,12 @@ function loadIntoFile(readfile) {
 
 let textarea = React.createRef();
 
+function sendData() {
+    console.log("ehwf")
+    let sentData = reference.getDoc();
+    let sentDirectory = reference.getAddr();
+    window.api.send('saveFile', {sentDirectory, sentData})
+}
+
 root.render(<Lines textName="textLine" ref={textarea}></Lines>);
-//export default Lines;
+//export default Lines;Save
