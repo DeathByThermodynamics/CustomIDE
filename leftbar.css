@@ -13,6 +13,27 @@
     background-color: rgb(48, 48, 48);
 }
 
+.shadow_button2 {
+  width: 100%;
+  background: none;
+  color: grey;
+  border: none;
+  padding: none;
+  height: 115%;
+}
+
+.icons {
+  width: 100%;
+  margin-top: 15px;
+  align-content:center;
+}
+
+.shadow_button2:hover {
+  color: white;
+  cursor: pointer;
+}
+
+
 .toolbar1 {
     
     width: 100%;

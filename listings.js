@@ -1,6 +1,5 @@
 'use strict';
 const domContainer = document.querySelector('#filelist');
-const root = ReactDOM.createRoot(domContainer);
 const isEmpty = str => !str.trim().length;
 const e = React.createElement; 
 
@@ -116,4 +115,17 @@ class Listings extends React.Component {
     }  
 }
 let testdir = "C:/users/alexh/hoi4example/"
-root.render(<Listings dir={testdir} lister={test} depth={0}></Listings>)
+
+function listing_renderer(currentpage) {
+    if (currentpage == 'text_editor') {
+        console.log(document.querySelector('#filelist'))
+        const root = ReactDOM.createRoot(document.getElementById('filelist'));
+        console.log(root)
+        root.render(<Listings dir={testdir} lister={test} depth={0}></Listings>)
+    } else {
+        const root = ReactDOM.createRoot(document.getElementById('bin'));
+        console.log(root)
+        root.render(<Listings dir={testdir} lister={test} depth={0}></Listings>)
+    }
+    
+}

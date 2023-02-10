@@ -1,7 +1,7 @@
 'use strict';
 
 const domContainer = document.querySelector('#text_container');
-const root = ReactDOM.createRoot(domContainer);
+
 const isEmpty = str => !str.trim().length;
 const e = React.createElement; 
 
@@ -228,7 +228,7 @@ class Lines extends React.Component {
                     ))}
                 </div>
                 <div id="column1">
-                    <textarea style={specialstyle}className="main_textarea" id={this.state.docName} onKeyDown={this.manageLines}  onClick={this.updateClick}> </textarea>
+                    <textarea spellCheck="false" style={specialstyle}className="main_textarea" id={this.state.docName} onKeyDown={this.manageLines}  onClick={this.updateClick}> </textarea>
                 </div>
             </div>
             
@@ -246,6 +246,7 @@ function CodeLineHelper(event) {
 
 
 function ReRender() {
+    const root = ReactDOM.createRoot(domContainer);
     root.render(<Lines textName="textLine"></Lines>);
 }
 
@@ -274,5 +275,13 @@ function sendData() {
     window.api.send('saveFile', {sentDirectory, sentData})
 }
 
-root.render(<Lines textName="textLine" ref={textarea}></Lines>);
+function textarea_renderer(currentpage) {
+    if (currentpage == 'text_editor') {
+        const root = ReactDOM.createRoot(document.getElementById('text_container'));
+        root.render(<Lines textName="textLine" ref={textarea}></Lines>);
+    }
+    
+    
+}
+
 //export default Lines;Save

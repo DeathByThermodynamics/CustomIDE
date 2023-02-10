@@ -1,7 +1,7 @@
 'use strict';
 
 const domContainer = document.querySelector('#toolbar');
-const root = ReactDOM.createRoot(domContainer);
+
 const isEmpty = str => !str.trim().length;
 const e = React.createElement; 
 
@@ -16,5 +16,6 @@ class Toolbar extends React.Component {
         return <div> Unlucky </div>
     }
 }
-
-root.render(<Toolbar></Toolbar>)
+ 
+//const root = ReactDOM.createRoot(document.getElementById('toolbar'));
+//root.render(<Toolbar></Toolbar>)

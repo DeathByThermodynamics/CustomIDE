@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="./styles.css"/>
     <link rel="stylesheet" href="./leftbar.css"/>
     <link rel="stylesheet" href="./listing.css"/>
+    <link rel="stylesheet" href="./image_processing.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
       rel="stylesheet"/>
     <title>Document</title>
@@ -43,24 +44,20 @@
       <div class="main_partition">
         
         <div  class="main_toolbar"> 
-          <div class="fixed_toolbar">   </div> 
-          <div class="toolbar1" id="toolbar"></div>
-        </div>
-
-        <div class="text_partition">
-          <div class="listing"> 
-            <div class="fixed_listing">
-              <div class="listing1" id="filelist">
-
-              </div>
+          <div class="fixed_toolbar">
+            <div class="icons">
+              <button class="shadow_button2" onclick="{switch_to_function('text_editor')}"> <span class="material-icons">folder</span> </button>
+            <button class="shadow_button2"  onclick="{switch_to_function('image_processing')}"> <span class="material-icons">image</span> </button>
             </div>
             
-          </div>
-          <div id="text_container" class="main_area"></div>
+          </div> 
+           
         </div>
+
+        <div id="content"></div>
         
       </div>
-      
+      <div id="bin"></div>
     </main>
 
    
@@ -69,9 +66,13 @@
     <script src="babel.min.js" crossorigin></script>
     
     <!-- <script src="textline.js" type="text/babel"></script> --> 
+    <script src="texteditor2.js" type="text/babel"></script>
     <script src="textarea.js" type="text/babel"></script>
     <script src="listings.js" type="text/babel"></script>
     <script src="toolbar.js" type="text/babel"></script>
+    
+
+    
     <script src="index.js" ></script>
   </body>
 </html>
