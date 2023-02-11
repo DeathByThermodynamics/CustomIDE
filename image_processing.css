@@ -9,8 +9,19 @@
     height: 100vh;
 }
 
+.image {
+  height: 100%;
+  width: 100%;
+}
+
 .file_upload {
     font-family: Arial;
+}
+
+.bordered_image {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
 .input-div {

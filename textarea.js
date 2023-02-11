@@ -266,7 +266,7 @@ function loadIntoFile(readfile) {
     //console.log("needy")
 }
 
-let textarea = React.createRef();
+const textarea = React.createRef();
 
 function sendData() {
     console.log("ehwf")
