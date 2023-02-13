@@ -66,7 +66,7 @@ class Lines extends React.Component {
 
     setDoc(data) {
         let lines = (data.match(/\n/g) || []).length;
-        console.log(lines)
+        //console.log(lines)
         this.setState(() => ({numLines: lines+3, selectedLine: 0}))
         document.getElementById(this.state.docName).value = data;
         document.getElementById("main_container").scrollTop = 0;
@@ -109,7 +109,7 @@ class Lines extends React.Component {
                  
             } else if (cutvalue.includes("\n") ) { 
                 let lines = (cutvalue.match(/\n/g) || []).length;
-                this.setState((state) => ({numLines: state.numLines - lines,  selectedLine: Math.min(state.selectedLine-1, state.numLines-lines-2)})); // okay
+                this.setState((state) => ({numLines: state.numLines - lines,  selectedLine: Math.min(state.selectedLine-1, state.numLines-lines-3)})); // okay
             }
 
             
@@ -255,11 +255,11 @@ window.api.receive("receiveFileOpen", loadIntoFile)
 function loadIntoFile(readfile) {
     //console.log(docNameMaster)
     //console.log(reference)
-    console.log(readfile.directory);
+    //console.log(readfile.directory);
     reference.setDoc(readfile.data);
 
     reference.setAddr(readfile.directory);
-    console.log(reference.getAddr())
+    //console.log(reference.getAddr())
     // BLESS EVERYTHING
     //console.log(event)
     //console.log(data)
@@ -269,7 +269,7 @@ function loadIntoFile(readfile) {
 const textarea = React.createRef();
 
 function sendData() {
-    console.log("ehwf")
+    //console.log("ehwf")
     let sentData = reference.getDoc();
     let sentDirectory = reference.getAddr();
     window.api.send('saveFile', {sentDirectory, sentData})

@@ -9,16 +9,25 @@ class ImgInput extends React.Component {
         }
         this.ManageUpload = this.ManageUpload.bind(this);
         this.ManageDrops = this.ManageDrops.bind(this);
+        this.ManageSubmit = this.ManageSubmit.bind(this);
     }
 
+    ManageSubmit() {
+        let width = document.getElementById("ImgWidth").value
+        let height = document.getElementById("ImgHeight").value
+        let addrlist = inputfile;
+        let ext = document.getElementById("ImgType").value
+        let saveaddr = document.getElementById("ImgSave").value;
+        window.api.send("processImages", {width, height, addrlist, ext, saveaddr})
+    }
     ManageDrops(e) {
         e.preventDefault()
         console.log(e)
-        let file = e.target.value
+        let file = e.target.files[0]
+        console.log(e.target)
         if (file.type.match("image")) {
             this.setState(() => ({inputfile: file, haspicture: 'yes'}))
         }
-        console.log("ano")
         
     }
 
@@ -41,13 +50,24 @@ class ImgInput extends React.Component {
         } else {
             accumulator.push(<div className="input-div" onDrop={this.ManageDrops}> 
             <p className="ddphoto">Drag & drop photos here or <strong>Browse</strong></p>
-            <input type="file" id="uploader" className="file_upload" accept="image/jpeg, image/png, image/jpg" onChange={this.ManageUpload}/>
+            <input type="file" id="uploader" className="file_upload" multiple accept="image/jpeg, image/png, image/jpg" onChange={this.ManageUpload}/>
         </div>)
         }
         // Options 
         accumulator.push(
-            <div>
+            <div className="InputSpecs">
                 
+                Width
+                <input id="ImgWidth" className="ImgInput"/>
+                Height
+                <input id="ImgHeight"className="ImgInput"/>
+                Extension 
+                <input id="ImgType" className="ImgInput"/>
+                Save Folder
+                <input id="ImgSave" className="ImgInput"/>
+
+                <p></p>
+                <button onClick={this.ManageSubmit} className="saveButton">Convert and Save</button>
             </div>
 
         )

@@ -49,3 +49,26 @@
   .ddphoto {
     color: white;
   }
+
+  .InputSpecs {
+    color: white;
+    width: 80%;
+    margin-top: 20px;
+    margin-left: 2vw;
+  }
+
+  .ImgInput {
+
+  }
+  
+  .saveButton {
+    background: rgb(32, 32, 33);
+    color: white;
+    border: white 1px solid;
+    padding: 15px;
+  }
+
+  .saveButton:hover {
+    background: rgb(87, 87, 87);
+    cursor: pointer;
+  }

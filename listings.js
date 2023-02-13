@@ -6,7 +6,7 @@ const e = React.createElement;
 const test = [];
 test.push("help.txt", "strat.txt", "2.txt", "ez.yml", "ichika.meta")
 
-
+let testdir = "C:/users/alexh/hoi4example/"
 
 function FileButton({name, dir, depth = 0, parents = "", parent}) {
     function handleOpenFile(e) {
@@ -65,6 +65,7 @@ class Listings extends React.Component {
     finishConstruct(folder) {
         //console.log("here")
         //console.log(folder)
+        testdir = folder.directory + "/";
         if (folder.depth == 0) {
             document.getElementById("document-title").textContent = folder.directory;
             this.setState((state) => ({items: folder.files1}));
@@ -114,7 +115,7 @@ class Listings extends React.Component {
         return entry
     }  
 }
-let testdir = "C:/users/alexh/hoi4example/"
+
 
 function listing_renderer(currentpage) {
     if (currentpage == 'text_editor') {
