@@ -15,7 +15,8 @@ class ImgInput extends React.Component {
     ManageSubmit() {
         let width = document.getElementById("ImgWidth").value
         let height = document.getElementById("ImgHeight").value
-        let addrlist = inputfile;
+        let addrlist = this.state.inputfile.path;
+        console.log(addrlist)
         let ext = document.getElementById("ImgType").value
         let saveaddr = document.getElementById("ImgSave").value;
         window.api.send("processImages", {width, height, addrlist, ext, saveaddr})

@@ -3,6 +3,8 @@ const path = require("path");
 const fs = require('fs');
 const electron = require('electron')
 
+var exec = require('child_process').execFile;
+
 let win;
 let didFinishLoad = false;
 require("electron-reloader")(module);
@@ -81,6 +83,23 @@ ipcMain.on("sendFileOpen", (event, args) => {
     // Most likely a folder
     console.log("This is not a file.")
   }
+})
+
+ipcMain.on("processImagesReceive", (event, args) => {
+  let width = args.width;
+  let height = args.height;
+  let addrlist = args.addrlist;
+  let saveaddr = args.saveaddr;
+  let ext = args.ext;
+  addrlist2 = []
+  addrlist2.push(addrlist);
+  let all_addr = addrlist2.join(";")
+  let dims = width + ";" + height
+  console.log("processing files")
+  exec('python/dist/imger/imger.exe', [all_addr, saveaddr, ext, dims], function(err, data) {
+      console.log(err);
+      console.log(data.toString());
+  });
 })
 
 function tryReadDir(directory, depth) {
